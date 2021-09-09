@@ -1,7 +1,3 @@
-<div align="center">
-    <img src="gallery/logo.png" width=160 />
-</div>
-
 # **React Native Challenge**
 
 React Native App with Expo (iOs and Android) to consult CNPJ numbers.
