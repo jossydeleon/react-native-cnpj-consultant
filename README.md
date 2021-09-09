@@ -2,7 +2,7 @@
 
 React Native App with Expo (iOs and Android) to consult CNPJ numbers.
 
-#### **What is using**
+#### **What is it using?**
 
 - Typescript
 - react-navigation 6
