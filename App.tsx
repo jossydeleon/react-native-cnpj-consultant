@@ -6,18 +6,25 @@ import MainStackNavigation from "./navigation/MainStackNavigation";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.root}>
-      <NavigationContainer>
-        <StatusBar />
-        <MainStackNavigation />
-      </NavigationContainer>
-    </SafeAreaView>
+    <>
+      <SafeAreaView style={styles.top} />
+      <SafeAreaView style={styles.root}>
+        <NavigationContainer>
+          <StatusBar />
+          <MainStackNavigation />
+        </NavigationContainer>
+      </SafeAreaView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
+  top: {
+    flex: 0,
+    backgroundColor: '#206db0'
+  },
   root: {
     flex: 1,
-    backgroundColor: "#206db0",
+    backgroundColor: "#f9f9f9",
   },
 });
