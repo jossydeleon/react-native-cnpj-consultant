@@ -6,6 +6,7 @@ import useRequestApi from "../hooks/useRequestApi";
 import { MainStackParamList } from "../types";
 import { Button, Title } from "react-native-paper";
 import DismissKeyboard from "../components/DissmissKeyboard";
+import { validation } from "../util/Helper";
 import {
   StyleSheet,
   Text,
@@ -52,12 +53,10 @@ const HomeScreen: React.FC<HomeProps> = ({ navigation }) => {
    *
    */
   const handleMakeCallApi = async () => {
-    var pattern = new RegExp(/^[0-9\b]+$/);
+    const hasError = validation(cnpjNumber);
 
-    if (!pattern.test(cnpjNumber)) {
-      //alert("CNPJ number is invalid");
-    } else if (cnpjNumber.length !== 14) {
-      //alert("CNPJ number needs to be 14 digits");
+    if (hasError.error) {
+      alert(hasError.message);
     } else {
       makeCall(cnpjNumber);
     }

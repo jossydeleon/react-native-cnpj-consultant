@@ -43,3 +43,21 @@ export function toDollarCurrency(amount: string | number) {
 export function splitPhoneNumber(str: string) {
   return str.split("/").map((st) => st.trim());
 }
+
+/**
+ * Validate string with regex
+ * @param str string to be validated
+ * @returns
+ */
+export function validation(str: string) {
+  var pattern = new RegExp(/^[0-9\b]+$/);
+
+  if (!pattern.test(str)) {
+    //alert("CNPJ number is invalid");
+    return { error: true, message: "CNPJ number is invalid" };
+  } else if (str.length !== 14) {
+    return { error: true, message: "CNPJ number needs to be 14 digits" };
+  } else {
+    return { error: false, message: "OK" };
+  }
+}
