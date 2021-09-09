@@ -1,4 +1,11 @@
 import moment from "moment";
+import { Platform } from "react-native";
+
+if (Platform.OS === "android") {
+  // Only for android
+  require("intl");
+  require("intl/locale-data/jsonp/pt-BR"); // load the required locale details
+}
 
 /**
  * Capitalize first letter of each work
@@ -17,6 +24,8 @@ export function capitalize(str: string) {
  * @returns date in human readable format
  */
 export function parseDate(date: Date | string) {
+  //Also I could use toLocaleString
+  //However I decide to use moment
   return moment(date).format("MMM DD, YYYY, hh:mm a");
 }
 
@@ -25,13 +34,17 @@ export function parseDate(date: Date | string) {
  * @param str number without format
  * @returns string formatted as a dollar currency
  */
-export function toDollarCurrency(amount: string | number) {
+export function toBrazilianCurrency(amount: string | number) {
   if (typeof amount === "number") {
-    return `$${amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")}`;
+    return `${amount.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    })}`;
   } else {
-    return `$${Number(amount)
-      .toFixed(2)
-      .replace(/\d(?=(\d{3})+\.)/g, "$&,")}`;
+    return `${Number(amount).toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    })}`;
   }
 }
 

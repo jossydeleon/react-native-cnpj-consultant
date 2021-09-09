@@ -8,7 +8,7 @@ import {
   capitalize,
   parseDate,
   splitPhoneNumber,
-  toDollarCurrency,
+  toBrazilianCurrency,
 } from "../util/Helper";
 
 type DetailsProps = StackScreenProps<MainStackParamList, "Details">;
@@ -43,7 +43,7 @@ const DetailsScreen: React.FC<DetailsProps> = ({ route }) => {
 
         <InfoItem
           title="Initial Income"
-          description={toDollarCurrency(capital_social) || "Any"}
+          description={toBrazilianCurrency(capital_social) || "Any"}
           icon="currency-usd"
         />
         <InfoItem
